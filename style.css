@@ -8,6 +8,9 @@ body {
   display: flex;
   background: #F7BB97;
 }
+audio {
+  visibility: hidden;
+}
 .memory-game {
   width: 700px;
   height: 650px;
