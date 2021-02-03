@@ -1,12 +1,25 @@
 const cards = document.querySelectorAll('.memory-card');
-const sound = document.getElementById('sound')
+const sound = document.getElementById('myAudio');
+const value = document.querySelector('#value');
+const counter = document.querySelector('#counter');
+var time = 0;
+var score = 0;
 
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
-
+let isStarted = false;
 function flipCard(){
+  
   if(lockBoard) return;
+  if (!isStarted) {
+    isStarted = true;
+    setInterval(function(){
+      value.innerHTML =  ' '+ time + ' ';
+      time = time +1;
+    }, 1000)
+  }
+  play()
   if(this === firstCard) return;
   this.classList.add('flip');
   if(!hasFlippedCard){
@@ -16,28 +29,37 @@ function flipCard(){
     return;
   } // second click
     secondCard = this;
-    flipSound()
     checkForMatch();
-    
+}
+function success(){
+  var audio = new Audio('audio/success.wav');
+  audio.play();
+}
+function play(){
+  var audio = new Audio('audio/flipcard.wav');
+  audio.play();
 }
 function checkForMatch(){
   let isMatch = firstCard.dataset.framework === 
   secondCard.dataset.framework;
     // it's matching
     if (isMatch){
-      lastPicture()
+      lastPicture();
     } 
     isMatch ? disableCards() : unFlipCards();
 }
 function disableCards(){
+  
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
   resetBoard()
+  
 }
 function unFlipCards(){
   lockBoard = true;
   setTimeout(() => {
     firstCard.classList.remove('flip');
+    play()
     secondCard.classList.remove('flip');
     resetBoard()
   }, 500);
@@ -52,20 +74,13 @@ function lastPicture(){
   setTimeout(() => {
     firstImage.src = './images/pati.jpg';
     secondImage.src = './images/pati.jpg';
+    success()
   }, 500);
+  score = score + 1
+  counter.textContent = score;
+
   
 }
-function flipSound(){
-  var soundFlag = true;
-  if(soundFlag){
-    
-    sound.currentTime = 0;
-    sound.onplay();
-    soundFlag = false;
-  }
-}
-
-
 (function shuffle(){
   cards.forEach(card =>{
     let refreshCard = Math.floor(Math.random()*12);

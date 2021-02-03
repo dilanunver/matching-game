@@ -48,3 +48,44 @@ audio {
 .front-face {
   transform: rotateY(180deg);
 }
+.score{
+  position: fixed;
+  bottom: 50%;
+  right: 7%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: rgba(98, 133, 220, 1);
+  text-transform: uppercase;
+} 
+.timer {
+  position: fixed;
+  bottom: 50%;
+  right: 85%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: rgba(98, 133, 220, 1);
+  text-transform: uppercase;
+}
+#value {
+  position: fixed;
+  bottom: 40%;
+  right: 89%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: rgba(98, 133, 220, 1);
+  text-transform: uppercase;
+}
+#counter {
+  position: fixed;
+  bottom: 40%;
+  right: 11%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: rgba(98, 133, 220, 1);
+  text-transform: uppercase;
+}
+
