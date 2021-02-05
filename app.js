@@ -2,6 +2,7 @@ const cards = document.querySelectorAll('.memory-card');
 const sound = document.getElementById('myAudio');
 const value = document.querySelector('#value');
 const counter = document.querySelector('#counter');
+const gameOver = document.querySelector('.gameover')
 var time = 0;
 var score = 0;
 
@@ -9,21 +10,19 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let isStarted = false;
+let isOver = false;
+let intervalid;
 function flipCard(){
-  
-  if(lockBoard) return;
+  if(lockBoard || isOver) return;
   if (!isStarted) {
     isStarted = true;
-    setInterval(function(){
-      value.innerHTML =  ' '+ time + ' ';
-      time = time +1;
-    }, 1000)
+    startInterval();
   }
   play()
   if(this === firstCard) return;
   this.classList.add('flip');
   if(!hasFlippedCard){
-    // first click
+    //first click
     hasFlippedCard = true;
     firstCard = this;
     return;
@@ -49,11 +48,9 @@ function checkForMatch(){
     isMatch ? disableCards() : unFlipCards();
 }
 function disableCards(){
-  
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
   resetBoard()
-  
 }
 function unFlipCards(){
   lockBoard = true;
@@ -77,10 +74,26 @@ function lastPicture(){
     success()
   }, 500);
   score = score + 1
-  counter.textContent = score;
-
+  counter.textContent = score; 
+  stopInterval();
   
 }
+
+function startInterval(){
+  intervalid = setInterval(function(){
+    value.innerHTML =  ' '+ time + ' ';
+    time = time +1;
+  }, 1000)
+}
+function stopInterval(){
+  if(score == 6){
+    clearInterval(intervalid);
+    gameOver.classList.add('gameover-show')
+  } else {
+    console.log('is not finished yet!')
+  }
+}
+
 (function shuffle(){
   cards.forEach(card =>{
     let refreshCard = Math.floor(Math.random()*12);
@@ -88,3 +101,4 @@ function lastPicture(){
   })
 })();
 cards.forEach(card =>card.addEventListener('click', flipCard))
+

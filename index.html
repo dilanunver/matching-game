@@ -1,117 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Memory Game</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="#">
-</head>
-<body>
-  <p class="score">Score</p>
-  <span id="counter">0</span>
-  <p class="timer">Timer</p>
-  <span id="value">0</span>
-  <section class="memory-game">
-    <div class="memory-card" data-framework="deli">
-      <img class="front-face" src="images/deli.jpg" alt="deli">
-      <img class="back-face" src="images/questionMark2.png" alt="questionMark">
-      <audio controls>
-        <source src="audio/flipcard.wav" id="myAudio" type="audio/wav">
-          <source src="audio/success.wav" id="sound" type="audio/wav">
-      </audio>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="#" />
+    <title>Matching Game</title>
+  </head>
+  <body>
+    <p class="score">Score</p>
+    <span id="counter">0</span>
+    <p class="timer">Timer</p>
+    <span id="value">0</span>
+    <div class="gameover">
+      <h3 class="finish-card">
+        congratulations,<br />
+        you're an animal friend too!
+      </h3>
+      <br /><br />
+      <p>here is our accounts</p>
+      <div class="social-menu">
+        <ul>
+        <li><a href="https://www.instagram.com/odtuhaydost/" class="instagram"
+            ><i class="fab fa-instagram"></i
+          ></a></li> 
+          <li><a
+            href="https://www.facebook.com/groups/odtuhayvandostlari"
+            class="facebook"
+          >
+            <i class="fab fa-facebook"></i
+          ></a></li> 
+          <li><a href="https://twitter.com/odtuhaydost?lang=en" class="twitter"
+            ><i class="fab fa-twitter-square"></i
+          ></a></li> 
+        </ul>
+      </div>
     </div>
-    <div class="memory-card" data-framework="deli">
-      <img class="front-face" src="images/deli.jpg" alt="deli">
-      <img class="back-face" src="images/questionMark2.png" alt="questionMark">
-      <audio controls>
-        <source src="audio/flipcard.wav" id="myAudio" type="audio/wav">
-          <source src="audio/success.wav" id="sound" type="audio/wav">
-      </audio>
-    </div>
-    <div class="memory-card" data-framework="chaplin">
-      <img class="front-face" src="images/chaplin.jpg" alt="duman">
-      <img class="back-face" src="images/questionMark2.png" alt="questionMark">
-      <audio controls>
-        <source src="audio/flipcard.wav" id="myAudio"type="audio/wav">
-          <source src="audio/success.wav" id="sound" type="audio/wav">
-      </audio>
-    </div>
-    <div class="memory-card" data-framework="chaplin">
-      <img class="front-face" src="images/chaplin.jpg" alt="duman">
-      <img class="back-face" src="images/questionMark2.png" alt="questionMark">
-      <audio controls>
-        <source src="audio/flipcard.wav" id="myAudio" type="audio/wav">
-          <source src="audio/success.wav" id="sound" type="audio/wav">
-      </audio>
-    </div>
-    <div class="memory-card" data-framework="gunes">
-      <img class="front-face" src="images/gunes.jpg" alt="kediDuman">
-      <img class="back-face" src="images/questionMark2.png" alt="questionMark">
-      <audio controls>
-        <source src="audio/flipcard.wav" id="myAudio" type="audio/wav">
-          <source src="audio/success.wav" id="sound" type="audio/wav">
-      </audio>
-    </div>
-    <div class="memory-card" data-framework="gunes">
-      <img class="front-face" src="images/gunes.jpg" alt="kediDuman">
-      <img class="back-face" src="images/questionMark2.png" alt="questionMark">
-      <audio controls>
-        <source src="audio/flipcard.wav" id="myAudio" type="audio/wav">
-          <source src="audio/success.wav" id="sound" type="audio/wav">
-      </audio>
-    </div>
-    <div class="memory-card" data-framework="kobe">
-      <img class="front-face" src="images/kobe.jpg" alt="kobe">
-      <img class="back-face" src="images/questionMark2.png" alt="questionMark">
-      <audio controls>
-        <source src="audio/flipcard.wav" id="myAudio" type="audio/wav">
-          <source src="audio/success.wav" id="sound" type="audio/wav">
-      </audio>
-    </div>
-    <div class="memory-card" data-framework="kobe">
-      <img class="front-face" src="images/kobe.jpg" alt="kobe">
-      <img class="back-face" src="images/questionMark2.png" alt="questionMark">
-      <audio controls>
-        <source src="audio/flipcard.wav" id="myAudio" type="audio/wav">
-          <source src="audio/success.wav" id="sound" type="audio/wav">
-      </audio>
-    </div>
-    <div class="memory-card" data-framework="badem">
-      <img class="front-face" src="images/badem.jpeg" alt="pasa">
-      <img class="back-face" src="images/questionMark2.png" alt="questionMark">
-      <audio controls>
-        <source src="audio/flipcard.wav" id="myAudio" type="audio/wav">
-          <source src="audio/success.wav" id="sound" type="audio/wav">
-      </audio>
-    </div>
-    <div class="memory-card" data-framework="badem">
-      <img class="front-face" src="images/badem.jpeg" alt="pasa">
-      <img class="back-face" src="images/questionMark2.png" alt="questionMark">
-      <audio controls>
-        <source src="audio/flipcard.wav" id="myAudio" type="audio/wav">
-          <source src="audio/success.wav" id="sound" type="audio/wav">
-      </audio>
-    </div>
-    <div class="memory-card" data-framework="lucy">
-      <img class="front-face" src="images/lucy.jpg" alt="corbyn">
-      <img class="back-face" src="images/questionMark2.png" alt="questionMark">
-      <audio controls>
-        <source src="audio/flipcard.wav" id="myAudio" type="audio/wav">
-          <source src="audio/success.wav" id="sound" type="audio/wav">
-      </audio>
-    </div>
-    <div class="memory-card" data-framework="lucy">
-      <img class="front-face" src="images/lucy.jpg" alt="corbyn">
-      <img class="back-face" src="images/questionMark2.png" alt="questionMark">
-      <audio controls>
-        <source src="audio/flipcard.wav" id="myAudio" type="audio/wav">
-          <source src="audio/success.wav" id="sound" type="audio/wav">
-      </audio>
-    </div>
-    
-  </section>
-  <script src="app.js"></script>
-</body>
+    <section class="memory-game">
+      <div class="memory-card" data-framework="deli">
+        <img class="front-face" src="images/deli.jpg" alt="deli" />
+        <img
+          class="back-face"
+          src="images/questionMark2.png"
+          alt="questionMark"
+        />
+        <audio controls>
+          <source src="audio/flipcard.wav" id="myAudio" type="audio/wav" />
+          <source src="audio/success.wav" id="sound" type="audio/wav" />
+        </audio>
+      </div>
+      <div class="memory-card" data-framework="deli">
+        <img class="front-face" src="images/deli.jpg" alt="deli" />
+        <img
+          class="back-face"
+          src="images/questionMark2.png"
+          alt="questionMark"
+        />
+        <audio controls>
+          <source src="audio/flipcard.wav" id="myAudio" type="audio/wav" />
+          <source src="audio/success.wav" id="sound" type="audio/wav" />
+        </audio>
+      </div>
+      <div class="memory-card" data-framework="chaplin">
+        <img class="front-face" src="images/chaplin.jpg" alt="chaplin" />
+        <img
+          class="back-face"
+          src="images/questionMark2.png"
+          alt="questionMark"
+        />
+        <audio controls>
+          <source src="audio/flipcard.wav" id="myAudio" type="audio/wav" />
+          <source src="audio/success.wav" id="sound" type="audio/wav" />
+        </audio>
+      </div>
+      <div class="memory-card" data-framework="chaplin">
+        <img class="front-face" src="images/chaplin.jpg" alt="chaplin" />
+        <img
+          class="back-face"
+          src="images/questionMark2.png"
+          alt="questionMark"
+        />
+        <audio controls>
+          <source src="audio/flipcard.wav" id="myAudio" type="audio/wav" />
+          <source src="audio/success.wav" id="sound" type="audio/wav" />
+        </audio>
+      </div>
+      <div class="memory-card" data-framework="gunes">
+        <img class="front-face" src="images/gunes.jpg" alt="gunes" />
+        <img
+          class="back-face"
+          src="images/questionMark2.png"
+          alt="questionMark"
+        />
+        <audio controls>
+          <source src="audio/flipcard.wav" id="myAudio" type="audio/wav" />
+          <source src="audio/success.wav" id="sound" type="audio/wav" />
+        </audio>
+      </div>
+      <div class="memory-card" data-framework="gunes">
+        <img class="front-face" src="images/gunes.jpg" alt="gunes" />
+        <img
+          class="back-face"
+          src="images/questionMark2.png"
+          alt="questionMark"
+        />
+        <audio controls>
+          <source src="audio/flipcard.wav" id="myAudio" type="audio/wav" />
+          <source src="audio/success.wav" id="sound" type="audio/wav" />
+        </audio>
+      </div>
+      <div class="memory-card" data-framework="kobe">
+        <img class="front-face" src="images/kobe.jpg" alt="kobe" />
+        <img
+          class="back-face"
+          src="images/questionMark2.png"
+          alt="questionMark"
+        />
+        <audio controls>
+          <source src="audio/flipcard.wav" id="myAudio" type="audio/wav" />
+          <source src="audio/success.wav" id="sound" type="audio/wav" />
+        </audio>
+      </div>
+      <div class="memory-card" data-framework="kobe">
+        <img class="front-face" src="images/kobe.jpg" alt="kobe" />
+        <img
+          class="back-face"
+          src="images/questionMark2.png"
+          alt="questionMark"
+        />
+        <audio controls>
+          <source src="audio/flipcard.wav" id="myAudio" type="audio/wav" />
+          <source src="audio/success.wav" id="sound" type="audio/wav" />
+        </audio>
+      </div>
+      <div class="memory-card" data-framework="badem">
+        <img class="front-face" src="images/badem.jpeg" alt="badem" />
+        <img
+          class="back-face"
+          src="images/questionMark2.png"
+          alt="questionMark"
+        />
+        <audio controls>
+          <source src="audio/flipcard.wav" id="myAudio" type="audio/wav" />
+          <source src="audio/success.wav" id="sound" type="audio/wav" />
+        </audio>
+      </div>
+      <div class="memory-card" data-framework="badem">
+        <img class="front-face" src="images/badem.jpeg" alt="badem" />
+        <img
+          class="back-face"
+          src="images/questionMark2.png"
+          alt="questionMark"
+        />
+        <audio controls>
+          <source src="audio/flipcard.wav" id="myAudio" type="audio/wav" />
+          <source src="audio/success.wav" id="sound" type="audio/wav" />
+        </audio>
+      </div>
+      <div class="memory-card" data-framework="lucy">
+        <img class="front-face" src="images/lucy.jpg" alt="lucy" />
+        <img
+          class="back-face"
+          src="images/questionMark2.png"
+          alt="questionMark"
+        />
+        <audio controls>
+          <source src="audio/flipcard.wav" id="myAudio" type="audio/wav" />
+          <source src="audio/success.wav" id="sound" type="audio/wav" />
+        </audio>
+      </div>
+      <div class="memory-card" data-framework="lucy">
+        <img class="front-face" src="images/lucy.jpg" alt="lucy" />
+        <img
+          class="back-face"
+          src="images/questionMark2.png"
+          alt="questionMark"
+        />
+        <audio controls>
+          <source src="audio/flipcard.wav" id="myAudio" type="audio/wav" />
+          <source src="audio/success.wav" id="sound" type="audio/wav" />
+        </audio>
+      </div>
+    </section>
+    <script src="app.js"></script>
+  </body>
 </html>
