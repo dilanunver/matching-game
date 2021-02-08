@@ -3,6 +3,15 @@ const sound = document.getElementById('myAudio');
 const value = document.querySelector('#value');
 const counter = document.querySelector('#counter');
 const gameOver = document.querySelector('.gameover')
+const socialMenuUl = document.querySelector('.social-menu ul');
+const restartBtn = document.querySelector('#restart .restart');
+const pictures = document.querySelectorAll('.front-face');
+let picturesArray = [];
+pictures.forEach(picture => {
+  picturesArray.push(picture.src)  
+})
+console.log(picturesArray)
+
 var time = 0;
 var score = 0;
 
@@ -89,16 +98,42 @@ function stopInterval(){
   if(score == 6){
     clearInterval(intervalid);
     gameOver.classList.add('gameover-show')
+    socialMenuUl.classList.add('show')
+    restartBtn.classList.add('restart-show')
   } else {
     console.log('is not finished yet!')
   }
 }
+function restart(){
+  resetBoard();
+  time = 0;
+  value.textContent = time;
+  score = 0;
+  counter.textContent = score;
+  isStarted = false;
+  isOver = false;
+  gameOver.classList.remove('gameover-show')
+  socialMenuUl.classList.remove('show')
+  restartBtn.classList.remove('restart-show');
+  pictures.forEach((picture, index)  => {
+    console.log(pictures)
+    console.log(picture)
+    picture.parentElement.classList.remove('flip')
+    picture.src = picturesArray[index]
+    console.log(picturesArray[index])
+  })
+  cards.forEach(card =>card.addEventListener('click', flipCard))
 
-(function shuffle(){
+  shuffle()
+}
+
+function shuffle(){
   cards.forEach(card =>{
     let refreshCard = Math.floor(Math.random()*12);
     card.style.order = refreshCard
   })
-})();
+};
+shuffle()
 cards.forEach(card =>card.addEventListener('click', flipCard))
+restartBtn.addEventListener('click', restart)
 
